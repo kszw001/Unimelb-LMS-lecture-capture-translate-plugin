@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>字幕翻译 - 设置</title>
+    <style>
+      body {
+        margin: 10px;
+        min-width: 260px;
+        font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      }
+      h1 {
+        font-size: 14px;
+        margin: 0 0 8px;
+      }
+      label.toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        user-select: none;
+        margin-bottom: 8px;
+      }
+      .section-title {
+        margin-top: 6px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .field {
+        margin-top: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        font-size: 12px;
+      }
+      .field input {
+        font-size: 12px;
+        padding: 3px 6px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-family: inherit;
+      }
+      .btn-row {
+        margin-top: 6px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 6px;
+      }
+      button.primary {
+        padding: 3px 10px;
+        font-size: 12px;
+        border-radius: 4px;
+        border: none;
+        background: #005c9d;
+        color: #fff;
+        cursor: pointer;
+      }
+      button.primary:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+      .status {
+        margin-top: 4px;
+        font-size: 11px;
+        color: #666;
+        min-height: 14px;
+      }
+      .desc {
+        margin-top: 6px;
+        font-size: 11px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>字幕翻译</h1>
+    <label class="toggle">
+      <input type="checkbox" id="toggle" />
+      启用字幕翻译
+    </label>
+
+    <div class="section-title">百度翻译 API 账密</div>
+    <div class="field">
+      <label for="appid">APP ID</label>
+      <input id="appid" type="text" placeholder="请输入你的百度翻译 APPID" />
+    </div>
+    <div class="field">
+      <label for="secret">密钥（Secret Key）</label>
+      <input id="secret" type="password" placeholder="请输入你的密钥" />
+    </div>
+    <div class="btn-row">
+      <button id="save" class="primary">保存设置</button>
+    </div>
+    <div id="status" class="status"></div>
+    <div class="desc">
+      每位用户使用自己的百度翻译账号和免费额度。插件仅在本地浏览器中保存配置。
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>字幕翻译</title>
+    <style>
+      body {
+        margin: 10px;
+        min-width: 200px;
+        font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      }
+      h1 {
+        font-size: 14px;
+        margin: 0 0 8px;
+      }
+      label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .desc {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>字幕翻译</h1>
+    <label>
+      <input type="checkbox" id="toggle" />
+      启用字幕翻译
+    </label>
+    <div class="desc">
+      打开墨尔本大学课程回放页面后，开启此开关即可在字幕旁显示中文翻译。
+    </div>
+    <script src="popup.js"></script>
+  </body>
+  </html>
+

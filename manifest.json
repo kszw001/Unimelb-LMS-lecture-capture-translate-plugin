@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "回放翻译",
+  "version": "0.1.0",
+  "description": "还没想好怎么写简介。",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.unimelb.edu.au/*",
+    "*://canvas.lms.unimelb.edu.au/*",
+    "*://*.echo360.net/*",
+    "*://*.echo360.net.au/*",
+    "https://fanyi-api.baidu.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.unimelb.edu.au/*",
+        "*://canvas.lms.unimelb.edu.au/*",
+        "*://*.echo360.net/*",
+        "*://*.echo360.net.au/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "content-script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "字幕翻译开关",
+    "default_popup": "popup.html"
+  }
+}
