@@ -36,7 +36,7 @@ async function callTranslateAPI(text) {
 
     const params = new URLSearchParams();
     params.set('q', text);
-    params.set('from', 'en');
+    params.set('from', 'auto');
     params.set('to', 'zh');
     params.set('appid', appid);
     params.set('salt', salt);
@@ -73,7 +73,7 @@ async function callTranslateAPI(text) {
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message && message.type === 'TRANSLATE_EN_ZH') {
+  if (message && message.type === 'TRANSLATE_TO_ZH') {
     (async () => {
       const translatedText = await callTranslateAPI(message.text || '');
       sendResponse({ translatedText });
